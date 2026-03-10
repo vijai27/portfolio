@@ -93,7 +93,7 @@ const Portfolio = () => {
       highlights: [
         "Executed systematic process optimization of flax fiber surface treatments using supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to enhance mechanical performance",
         "Fabricated composite laminates directly from treated fibers and conducted comparative tensile testing to assess mechanical property improvements and structural performance between treated and untreated fiber systems",
-        "Developed automated data processing script for single flax fiber tensile analysis, significantly reducing analysis time and improving measurement consistency across multiple tests"
+        "Built an end-to-end image analysis pipeline (Python, OpenCV) that automated microscopy fiber thickness measurement, reducing per-image processing from 2 min (manual) to <0.5 sec while improving measurement consistency across 1,700 images."
       ]
     },
     {
@@ -303,10 +303,10 @@ const Portfolio = () => {
                 <span className={darkMode ? 'text-blue-400' : 'text-blue-600'}>Natarajan Ganesh Babu</span>
               </h1>
               <p className={`text-xl ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-                Aerospace Engineer specializing in Structures, Materials & Composite Manufacturing
+                Aerospace Engineer specializing in Structures, Materials & Manufacturing
               </p>
               <p className={`text-lg ${darkMode ? 'text-slate-500' : 'text-slate-500'} leading-relaxed`}>
-                Developing advanced composite materials and computational methodologies for next-generation aerospace systems
+                Pushing sustainable materials to their limits
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <button
@@ -625,8 +625,8 @@ const Portfolio = () => {
             Get In Touch
           </h2>
           <p className={`text-lg mb-12 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-            I'm actively seeking internship and full-time opportunities in aerospace engineering, 
-            structural analysis, composite materials, manufacturing engineering, and quality systems. Let's connect!
+            I'm actively seeking internship and full-time opportunities in aerospace engineering,
+            mechanical engineering, materials engineering, composite materials, and manufacturing engineering. Let's connect!
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
