@@ -330,7 +330,7 @@ const Portfolio = () => {
                   Get in Touch
                 </button>
                 <a
-                  href="/resume.pdf"
+                  href="https://drive.google.com/file/d/1SoSRt05H-EaTPZhcoDIhIE59MgjhrDc8/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`inline-flex items-center px-8 py-4 rounded-lg font-medium transition-all ${
@@ -425,14 +425,6 @@ const Portfolio = () => {
                     </li>
                     <li className="flex items-start">
                       <ArrowRight size={18} className={`mr-2 mt-1 flex-shrink-0 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-                      <span>Computational Mechanics & FEM</span>
-                    </li>
-                    <li className="flex items-start">
-                      <ArrowRight size={18} className={`mr-2 mt-1 flex-shrink-0 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-                      <span>Structural Analysis & Optimization</span>
-                    </li>
-                    <li className="flex items-start">
-                      <ArrowRight size={18} className={`mr-2 mt-1 flex-shrink-0 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
                       <span>Design for Manufacturing & Assembly</span>
                     </li>
                     <li className="flex items-start">
@@ -441,7 +433,7 @@ const Portfolio = () => {
                     </li>
                     <li className="flex items-start">
                       <ArrowRight size={18} className={`mr-2 mt-1 flex-shrink-0 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-                      <span>Quality Systems & Regulatory Compliance</span>
+                      <span>Sustainable Materials</span>
                     </li>
                   </ul>
                 </div>
