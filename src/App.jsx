@@ -90,7 +90,7 @@ const Portfolio = () => {
       organization: "The Taub Group, University of Michigan",
       duration: "Jan 2025 – Present",
       location: "Ann Arbor, MI",
-      description: "Advancing sustainable composite materials through innovative fiber treatment processes and data-driven analysis methodologies.",
+      description: "Advancing sustainable composite materials through innovative fiber treatment processes.",
       highlights: [
         "Executed systematic process optimization of flax fiber surface treatments using supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to enhance mechanical performance",
         "Fabricated composite laminates directly from treated fibers and conducted comparative tensile testing to assess mechanical property improvements and structural performance between treated and untreated fiber systems",
