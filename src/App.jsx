@@ -47,7 +47,7 @@ const Portfolio = () => {
     },
     {
       title: "Surrogate Modeling of Composite Laminated Plates",
-      summary: "Developed physics-based model using ComposiPy library to predict structural performance metrics. Implemented Morris Screening and Latin Hypercube Sampling for design of experiments to generate training datasets for surrogate modeling.",
+      summary: "Built a multi-mode surrogate model for composite plate analysis using ComposiPy and Response Surface Methodology (RSM). Implemented Morris Screening for sensitivity analysis and Log-transform optimization to achieve high R² accuracy. Supports 3 analysis modes (buckling, bending, frequency) with 15 design variables and asymmetric laminate configurations, enabling fast design space exploration.",
       skills: ["Python", "ComposiPy", "Morris Screening", "Latin Hypercube Sampling", "Surrogate Modeling", "FEM"],
       category: "Course Project",
       github: "https://github.com/vijai27/Surrogate-Modeling/tree/main"
