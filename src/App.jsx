@@ -60,7 +60,7 @@ const Portfolio = () => {
     },
     {
       title: "Gear Pump Analysis & Redesign",
-      summary: "Conducted FAST analysis and optimized assembly sequence for gear pump redesign. Redesigned mechanical components with detailed GD&T specifications, improving manufacturability by 40% and reducing costs by 15%.",
+      summary: "Conducted FAST analysis and optimized assembly sequence for gear pump redesign. Redesigned mechanical components, improving manufacturability by 40% and reducing costs by 15%.",
       skills: ["Fusion 360", "DFMA", "GD&T", "FAST Analysis", "BOM Development", "Assembly Optimization"],
       category: "Course Project"
     },
