@@ -41,7 +41,7 @@ const Portfolio = () => {
     {
       title: "Design and Manufacturing of Composite Laminates for Flexural Performance",
       summary: "Designed and manufactured 12-ply IM7-8552 carbon/epoxy composite laminate using Classical Lamination Theory. Conducted ASTM D7264 four-point bending tests and validated CLT predictions within 3.2% accuracy through experimental testing.",
-      skills: ["Classical Lamination Theory", "IM7-8552 Carbon/Epoxy", "Vacuum Bagging", "Autoclave Processing", "ASTM D7264", "Flexural Testing"],
+      skills: ["Classical Lamination Theory", "MATLAB", "IM7-8552 Carbon/Epoxy", "Vacuum Bagging", "Autoclave Processing", "ASTM D7264", "Flexural Testing"],
       category: "Course Project",
       github: "https://github.com/vijai27/classical-lamination-theory"
     },
