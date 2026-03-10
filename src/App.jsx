@@ -290,87 +290,91 @@ const Portfolio = () => {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center space-y-8" style={{ animation: 'fadeInUp 1s ease-out' }}>
-            
-            <div className="flex justify-center mb-6">
-              <div className={`relative w-40 h-40 rounded-full overflow-hidden ${
-                darkMode ? 'border-4 border-blue-400/30 shadow-2xl shadow-blue-400/20' : 'border-4 border-blue-600/30 shadow-2xl'
-              }`}>
-                <img 
-                  src={profileImage} 
-                  alt="Vijai Venkatesh"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                  }}
-                />
-              </div>
-            </div>
-            
-            <div className="space-y-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="grid md:grid-cols-2 gap-12 items-center" style={{ animation: 'fadeInUp 1s ease-out' }}>
+            <div className="space-y-6">
               <div className={`inline-block px-4 py-2 rounded-full ${
                 darkMode ? 'bg-blue-400/10 text-blue-400' : 'bg-blue-50 text-blue-600'
               } text-sm font-medium`}>
                 Graduate Student | University of Michigan
               </div>
-              <h1 className={`text-5xl md:text-7xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'} tracking-tight`}>
+              <h1 className={`text-5xl md:text-6xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'} tracking-tight leading-tight`}>
                 Vijai Venkatesh<br />
                 <span className={darkMode ? 'text-blue-400' : 'text-blue-600'}>Natarajan Ganesh Babu</span>
               </h1>
-              <p className={`text-xl md:text-2xl ${darkMode ? 'text-slate-400' : 'text-slate-600'} max-w-3xl mx-auto`}>
+              <p className={`text-xl ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                 Aerospace Engineer specializing in Structures, Materials & Composite Manufacturing
               </p>
+              <p className={`text-lg ${darkMode ? 'text-slate-500' : 'text-slate-500'} leading-relaxed`}>
+                Developing advanced composite materials and computational methodologies for next-generation aerospace systems
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <button
+                  onClick={() => scrollToSection('projects')}
+                  className={`px-8 py-4 rounded-lg font-medium transition-all transform hover:scale-105 ${
+                    darkMode
+                      ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/30'
+                      : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg'
+                  }`}
+                >
+                  View Projects
+                </button>
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className={`px-8 py-4 rounded-lg font-medium transition-all ${
+                    darkMode
+                      ? 'bg-slate-800 hover:bg-slate-700 text-white border border-slate-700'
+                      : 'bg-white hover:bg-slate-50 text-slate-900 border border-slate-300'
+                  }`}
+                >
+                  Get in Touch
+                </button>
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center px-8 py-4 rounded-lg font-medium transition-all ${
+                    darkMode
+                      ? 'bg-slate-800 hover:bg-slate-700 text-white border border-slate-700'
+                      : 'bg-white hover:bg-slate-50 text-slate-900 border border-slate-300'
+                  }`}
+                >
+                  <Download size={18} className="mr-2" />
+                  Download Resume
+                </a>
+              </div>
+              <div className="flex gap-4 pt-2">
+                <a href="https://www.linkedin.com/in/vijai-venkatesh/" target="_blank" rel="noopener noreferrer"
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg transition-colors border ${
+                    darkMode ? 'bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border-slate-700' : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border-slate-200'
+                  }`}>
+                  <Linkedin size={20} />
+                </a>
+                <a href="https://github.com/vijai27" target="_blank" rel="noopener noreferrer"
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg transition-colors border ${
+                    darkMode ? 'bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border-slate-700' : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border-slate-200'
+                  }`}>
+                  <Github size={20} />
+                </a>
+                <a href="mailto:vijaiv@umich.edu"
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg transition-colors border ${
+                    darkMode ? 'bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border-slate-700' : 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border-slate-200'
+                  }`}>
+                  <Mail size={20} />
+                </a>
+              </div>
             </div>
-
-            <div className={`max-w-2xl mx-auto ${darkMode ? 'text-slate-300' : 'text-slate-600'} text-lg leading-relaxed`}>
-              Developing advanced composite materials and computational methodologies for next-generation aerospace systems
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-4 pt-4">
-              <button
-                onClick={() => scrollToSection('projects')}
-                className={`px-8 py-4 rounded-lg font-medium transition-all transform hover:scale-105 ${
-                  darkMode
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/30'
-                    : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg'
-                }`}
-              >
-                View Projects
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className={`px-8 py-4 rounded-lg font-medium transition-all ${
-                  darkMode
-                    ? 'bg-slate-800 hover:bg-slate-700 text-white border border-slate-700'
-                    : 'bg-white hover:bg-slate-50 text-slate-900 border border-slate-300'
-                }`}
-              >
-                Get in Touch
-              </button>
-              <a
-                href="#"
-                className={`inline-flex items-center px-8 py-4 rounded-lg font-medium transition-all ${
-                  darkMode
-                    ? 'bg-slate-800 hover:bg-slate-700 text-white border border-slate-700'
-                    : 'bg-white hover:bg-slate-50 text-slate-900 border border-slate-300'
-                }`}
-              >
-                <Download size={18} className="mr-2" />
-                Download Resume
-              </a>
-            </div>
-
-            <div className="flex justify-center gap-6 pt-8">
-              <a href="mailto:vijaiv@umich.edu" className={`${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>
-                <Mail size={24} />
-              </a>
-              <a href="https://www.linkedin.com/in/vijai-venkatesh/" target="_blank" rel="noopener noreferrer" className={`${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>
-                <Linkedin size={24} />
-              </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className={`${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>
-                <Github size={24} />
-              </a>
+            <div className="flex justify-center md:justify-end">
+              <div className={`relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl ${
+                darkMode ? 'border-4 border-slate-800' : 'border-4 border-slate-200'
+              }`}>
+                <img
+                  src={profileImage}
+                  alt="Vijai Venkatesh"
+                  className="w-full h-full object-cover"
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -633,16 +637,16 @@ const Portfolio = () => {
             structural analysis, composite materials, manufacturing engineering, and quality systems. Let's connect!
           </p>
 
-          <div className="grid grid-cols-3 gap-4 mb-12 max-w-xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             <a
               href="mailto:vijaiv@umich.edu"
-              className={`aspect-square p-6 rounded-xl transition-all hover:scale-105 flex flex-col items-center justify-center ${
+              className={`flex items-center gap-3 px-6 py-4 rounded-xl transition-all hover:scale-105 ${
                 darkMode
                   ? 'bg-slate-800 hover:bg-slate-700 border border-slate-700'
                   : 'bg-slate-50 hover:bg-slate-100 border border-slate-200'
               }`}
             >
-              <Mail size={28} className={`mb-3 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+              <Mail size={22} className={darkMode ? 'text-blue-400' : 'text-blue-600'} />
               <h3 className={`font-semibold text-sm ${darkMode ? 'text-white' : 'text-slate-900'}`}>Email</h3>
             </a>
 
@@ -650,42 +654,29 @@ const Portfolio = () => {
               href="https://www.linkedin.com/in/vijai-venkatesh/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`aspect-square p-6 rounded-xl transition-all hover:scale-105 flex flex-col items-center justify-center ${
+              className={`flex items-center gap-3 px-6 py-4 rounded-xl transition-all hover:scale-105 ${
                 darkMode
                   ? 'bg-slate-800 hover:bg-slate-700 border border-slate-700'
                   : 'bg-slate-50 hover:bg-slate-100 border border-slate-200'
               }`}
             >
-              <Linkedin size={28} className={`mb-3 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+              <Linkedin size={22} className={darkMode ? 'text-blue-400' : 'text-blue-600'} />
               <h3 className={`font-semibold text-sm ${darkMode ? 'text-white' : 'text-slate-900'}`}>LinkedIn</h3>
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/vijai27"
               target="_blank"
               rel="noopener noreferrer"
-              className={`aspect-square p-6 rounded-xl transition-all hover:scale-105 flex flex-col items-center justify-center ${
+              className={`flex items-center gap-3 px-6 py-4 rounded-xl transition-all hover:scale-105 ${
                 darkMode
                   ? 'bg-slate-800 hover:bg-slate-700 border border-slate-700'
                   : 'bg-slate-50 hover:bg-slate-100 border border-slate-200'
               }`}
             >
-              <Github size={28} className={`mb-3 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
+              <Github size={22} className={darkMode ? 'text-blue-400' : 'text-blue-600'} />
               <h3 className={`font-semibold text-sm ${darkMode ? 'text-white' : 'text-slate-900'}`}>GitHub</h3>
             </a>
-          </div>
-
-          <div className={`p-8 rounded-xl ${
-            darkMode
-              ? 'bg-gradient-to-r from-blue-900/20 to-slate-800/50 border border-blue-800/50'
-              : 'bg-gradient-to-r from-blue-50 to-slate-50 border border-blue-200'
-          }`}>
-            <p className={`text-lg mb-4 ${darkMode ? 'text-white' : 'text-slate-900'} font-semibold`}>
-              Open to Opportunities
-            </p>
-            <p className={darkMode ? 'text-slate-300' : 'text-slate-600'}>
-              Aerospace Engineering • Structural Analysis • Composite Materials • Manufacturing Engineering • Quality Systems • Medical Devices
-            </p>
           </div>
         </div>
       </section>
@@ -704,7 +695,7 @@ const Portfolio = () => {
               <a href="https://www.linkedin.com/in/vijai-venkatesh/" target="_blank" rel="noopener noreferrer" className={`${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>
                 <Linkedin size={20} />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className={`${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>
+              <a href="https://github.com/vijai27" target="_blank" rel="noopener noreferrer" className={`${darkMode ? 'text-slate-400 hover:text-blue-400' : 'text-slate-500 hover:text-blue-600'} transition-colors`}>
                 <Github size={20} />
               </a>
             </div>
