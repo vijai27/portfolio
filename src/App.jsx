@@ -40,45 +40,59 @@ const Portfolio = () => {
   const projects = [
     {
       title: "Design and Manufacturing of Composite Laminates for Flexural Performance",
-      summary: "Problem: Predict flexural performance of a carbon/epoxy laminate before costly fabrication. Modeled a 12-ply IM7-8552 layup using Classical Lamination Theory, assuming linear elastic behavior and perfect ply bonding. Validated against ASTM D7264 four-point bending tests — predictions matched within 3.2%, confirming CLT as a reliable pre-fabrication design tool.",
+      problem: "Predict flexural performance of a carbon/epoxy laminate before costly fabrication.",
+      approach: "Modeled a 12-ply IM7-8552 layup using Classical Lamination Theory, assuming linear elastic behavior and perfect ply bonding.",
+      result: "Validated against ASTM D7264 four-point bending tests — predictions matched within 3.2%, confirming CLT as a reliable pre-fabrication design tool.",
       skills: ["Classical Lamination Theory", "IM7-8552 Carbon/Epoxy", "Vacuum Bagging", "Autoclave Processing", "ASTM D7264", "Flexural Testing"],
       category: "Course Project",
       github: "https://github.com/vijai27/classical-lamination-theory"
     },
     {
       title: "Surrogate Modeling of Composite Laminated Plates",
-      summary: "Problem: Running full FEM simulations for every composite plate configuration is too slow for design optimization. Built an RSM surrogate model using ComposiPy, first applying Morris Screening to identify the most influential variables among 15 design parameters. Log-transform optimization pushed model accuracy to high R² across all 3 analysis modes (buckling, bending, frequency) — cutting evaluation time while covering asymmetric laminate configurations.",
+      problem: "Running full FEM simulations for every composite plate configuration is too slow for design optimization.",
+      approach: "Built an RSM surrogate model using ComposiPy, applying Morris Screening to identify the most influential variables among 15 design parameters. Log-transform optimization improved model accuracy.",
+      result: "Achieved high R² across all 3 analysis modes (buckling, bending, frequency), cutting evaluation time while covering asymmetric laminate configurations.",
       skills: ["Python", "ComposiPy", "Morris Screening", "Latin Hypercube Sampling", "Surrogate Modeling", "FEM"],
       category: "Course Project",
       github: "https://github.com/vijai27/Surrogate-Modeling/tree/main"
     },
     {
       title: "Natural Fiber Composite Enhancement Research",
-      summary: "Problem: Untreated natural fibers bond poorly with polymer matrices, limiting composite strength. Applied supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to improve flax fiber surface adhesion. Built a Python/OpenCV image analysis pipeline to process tensile test data — reduced analysis time from 2 minutes to under 0.5 seconds across 1,700 images, enabling faster iteration on treatment parameters.",
+      problem: "Untreated natural fibers bond poorly with polymer matrices, limiting composite strength.",
+      approach: "Applied supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to improve flax fiber surface adhesion. Built a Python/OpenCV image analysis pipeline for tensile test data.",
+      result: "Reduced analysis time from 2 minutes to under 0.5 seconds across 1,700 images, enabling faster iteration on treatment parameters.",
       skills: ["Supercritical Fluid Processing", "TiO₂ Nanoparticles", "Composite Manufacturing", "Tensile Testing", "MATLAB", "Data Automation"],
       category: "Graduate Research"
     },
     {
       title: "Gear Pump Analysis & Redesign",
-      summary: "Problem: Existing gear pump design had unnecessary complexity that drove up manufacturing cost and assembly time. Used FAST analysis to identify non-value-adding features, then optimized the assembly sequence and tightened GD&T specifications. Redesigned components achieved 40% better manufacturability and 15% cost reduction — decisions validated through BOM review and supplier feasibility checks.",
+      problem: "Existing gear pump design had unnecessary complexity that drove up manufacturing cost and assembly time.",
+      approach: "Used FAST analysis to identify non-value-adding features, then optimized the assembly sequence and tightened GD&T specifications.",
+      result: "Redesigned components achieved 40% better manufacturability and 15% cost reduction — validated through BOM review and supplier feasibility checks.",
       skills: ["Fusion 360", "DFMA", "GD&T", "FAST Analysis", "BOM Development", "Assembly Optimization"],
       category: "Course Project"
     },
     {
       title: "Laser Surface Texturing for Dental Implant Applications",
-      summary: "Problem: Smooth titanium implant surfaces promote bacterial adhesion and reduce osseointegration. Designed bio-inspired texturing patterns and applied CO₂ laser processing to Ti-6Al-4V substrates, using SEM and contact angle analysis to characterize each iteration. Optimized pattern geometry achieved 44% improvement in hydrophobicity — demonstrating surface texture as a viable, process-controllable path to better implant performance.",
+      problem: "Smooth titanium implant surfaces promote bacterial adhesion and reduce osseointegration.",
+      approach: "Designed bio-inspired texturing patterns and applied CO₂ laser processing to Ti-6Al-4V substrates, using SEM and contact angle analysis to characterize each iteration.",
+      result: "Optimized pattern geometry achieved 44% improvement in hydrophobicity, demonstrating surface texture as a viable, process-controllable path to better implant performance.",
       skills: ["CO₂ Laser Processing", "Ti-6Al-4V", "SEM", "Contact Angle Analysis", "Surface Metrology", "Materials Characterization"],
       category: "UG Thesis"
     },
     {
       title: "Hybrid Ballistic Composite Development",
-      summary: "Problem: Pure Kevlar armor is effective but expensive and non-sustainable — can natural fibers partially replace it without sacrificing ballistic performance? Fabricated Kevlar-29/flax hybrid laminates via vacuum bagging, systematically varying fiber ratios. Tested under high-velocity impact using a gas gun apparatus and analyzed failure modes — results established the hybrid configuration that balances energy absorption, weight, and material cost.",
+      problem: "Pure Kevlar armor is effective but expensive and non-sustainable — can natural fibers partially replace it without sacrificing ballistic performance?",
+      approach: "Fabricated Kevlar-29/flax hybrid laminates via vacuum bagging, systematically varying fiber ratios, then tested under high-velocity impact using a gas gun apparatus.",
+      result: "Failure mode analysis established the hybrid configuration that best balances energy absorption, weight, and material cost.",
       skills: ["Kevlar-29", "Flax Fibers", "Vacuum Bagging", "Gas Gun Testing", "High-Velocity Impact Testing", "Failure Analysis"],
       category: "UG Thesis"
     },
     {
       title: "Autonomous Agricultural Drone Platform",
-      summary: "Problem: Manual crop spraying in small-scale Indian farms is labor-intensive, imprecise, and exposes workers to chemicals. Designed a multi-rotor drone with 4 kg payload capacity and an automated docking station for autonomous operation. Led a 15-member team from concept through fabrication — structural decisions centered on Al 6061-T6 for the frame, with flight control tuned for stable low-altitude navigation over crop rows.",
+      problem: "Manual crop spraying in small-scale Indian farms is labor-intensive, imprecise, and exposes workers to chemicals.",
+      approach: "Designed a multi-rotor drone with 4 kg payload capacity and an automated docking station. Led a 15-member team from concept through fabrication using Al 6061-T6 for the frame.",
+      result: "Delivered a fully functional prototype with flight control tuned for stable low-altitude navigation over crop rows.",
       skills: ["SolidWorks", "Al 6061-T6 Machining", "Flight Control Systems", "Autonomous Navigation", "Systems Integration", "CAD/CAM"],
       category: "UG Thesis"
     }
@@ -475,9 +489,20 @@ const Portfolio = () => {
                   {project.title}
                 </h3>
 
-                <p className={`text-sm leading-relaxed mb-4 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                  {project.summary}
-                </p>
+                <div className="mb-4 space-y-2">
+                  {[
+                    { label: "Problem", text: project.problem },
+                    { label: "Approach", text: project.approach },
+                    { label: "Result", text: project.result },
+                  ].map(({ label, text }) => (
+                    <div key={label} className="flex gap-2 text-sm leading-relaxed">
+                      <span className={`shrink-0 font-semibold ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                        {label}
+                      </span>
+                      <span className={darkMode ? 'text-slate-300' : 'text-slate-600'}>{text}</span>
+                    </div>
+                  ))}
+                </div>
 
                 <div>
                   <h4 className={`text-xs font-semibold uppercase tracking-wider mb-2 ${
