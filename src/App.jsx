@@ -419,13 +419,13 @@ const Portfolio = () => {
                   <div className="space-y-3">
                     <div>
                       <p className="font-medium">MSE Aerospace Engineering</p>
-                      <p className="text-sm">University of Michigan | GPA: 3.73</p>
+                      <p className="text-sm">University of Michigan </p>
                       <p className="text-sm">Focus: Structures & Materials</p>
                       <p className="text-sm opacity-70">Aug 2024 - May 2026</p>
                     </div>
                     <div className="pt-2">
                       <p className="font-medium">BE Manufacturing Engineering</p>
-                      <p className="text-sm">College of Engineering Guindy | GPA: 3.71</p>
+                      <p className="text-sm">College of Engineering Guindy </p>
                       <p className="text-sm opacity-70">Graduated Apr 2024</p>
                     </div>
                   </div>
