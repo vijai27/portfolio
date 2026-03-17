@@ -40,9 +40,9 @@ const Portfolio = () => {
   const projects = [
     {
       title: "Design and Manufacturing of Composite Laminates for Flexural Performance",
-      problem: "Predict flexural performance of a carbon/epoxy laminate before costly fabrication.",
+      problem: "Design a carbon/epoxy composite laminate to achieve a target flexural modulus without relying on costly trial-and-error fabrication.",
       approach: "Modeled a 12-ply IM7-8552 layup using Classical Lamination Theory, assuming linear elastic behavior and perfect ply bonding.",
-      result: "Validated against ASTM D7264 four-point bending tests — predictions matched within 3.2%, confirming CLT as a reliable pre-fabrication design tool.",
+      result: "Validated against ASTM D7264 four-point bending tests. Predictions matched within 3.2%, confirming CLT as a reliable pre-fabrication design tool.",
       skills: ["Classical Lamination Theory", "IM7-8552 Carbon/Epoxy", "Vacuum Bagging", "Autoclave Processing", "ASTM D7264", "Flexural Testing"],
       category: "Course Project",
       github: "https://github.com/vijai27/classical-lamination-theory"
@@ -57,10 +57,10 @@ const Portfolio = () => {
       github: "https://github.com/vijai27/Surrogate-Modeling/tree/main"
     },
     {
-      title: "Natural Fiber Composite Enhancement Research",
-      problem: "Untreated natural fibers bond poorly with polymer matrices, limiting composite strength.",
-      approach: "Applied supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to improve flax fiber surface adhesion. Built a Python/OpenCV image analysis pipeline for tensile test data.",
-      result: "Reduced analysis time from 2 minutes to under 0.5 seconds across 1,700 images, enabling faster iteration on treatment parameters.",
+      title: "Natural Fiber Composites as a Sustainable Alternative to Glass Fiber for Automotive Structural Applications",
+      problem: "Glass fiber composites dominate automotive structural parts but raise growing sustainability and recyclability concerns. This project investigates whether natural fibers can serve as a viable, eco-friendly replacement.",
+      approach: "Applied supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to flax fibers to improve surface adhesion and fiber-matrix compatibility. Fabricated composite laminates from treated fibers and conducted comparative tensile testing.",
+      result: "Surface characterization confirmed improved wettability and fiber-matrix adhesion following treatment. Tensile property evaluation is ongoing as part of a broader mechanical performance assessment.",
       skills: ["Supercritical Fluid Processing", "TiO₂ Nanoparticles", "Composite Manufacturing", "Tensile Testing", "MATLAB", "Data Automation"],
       category: "Graduate Research"
     },
@@ -68,7 +68,7 @@ const Portfolio = () => {
       title: "Gear Pump Analysis & Redesign",
       problem: "Existing gear pump design had unnecessary complexity that drove up manufacturing cost and assembly time.",
       approach: "Used FAST analysis to identify non-value-adding features, then optimized the assembly sequence and tightened GD&T specifications.",
-      result: "Redesigned components achieved 40% better manufacturability and 15% cost reduction — validated through BOM review and supplier feasibility checks.",
+      result: "Redesigned components achieved 40% better manufacturability and 15% cost reduction, validated through BOM review and tolerance stack-up analysis.",
       skills: ["Fusion 360", "DFMA", "GD&T", "FAST Analysis", "BOM Development", "Assembly Optimization"],
       category: "Course Project"
     },
@@ -82,8 +82,8 @@ const Portfolio = () => {
     },
     {
       title: "Hybrid Ballistic Composite Development",
-      problem: "Pure Kevlar armor is effective but expensive and non-sustainable — can natural fibers partially replace it without sacrificing ballistic performance?",
-      approach: "Fabricated Kevlar-29/flax hybrid laminates via vacuum bagging, systematically varying fiber ratios, then tested under high-velocity impact using a gas gun apparatus.",
+      problem: "Pure Kevlar armor is effective but expensive and non-sustainable. Can natural fibers partially replace it without sacrificing ballistic performance?",
+      approach: "Fabricated Kevlar-29/flax hybrid laminates via vacuum bagging, systematically varying fiber ratios and stacking sequences, then tested under high-velocity impact using a gas gun apparatus.",
       result: "Failure mode analysis established the hybrid configuration that best balances energy absorption, weight, and material cost.",
       skills: ["Kevlar-29", "Flax Fibers", "Vacuum Bagging", "Gas Gun Testing", "High-Velocity Impact Testing", "Failure Analysis"],
       category: "UG Thesis"
@@ -92,7 +92,7 @@ const Portfolio = () => {
       title: "Autonomous Agricultural Drone Platform",
       problem: "Manual crop spraying in small-scale Indian farms is labor-intensive, imprecise, and exposes workers to chemicals.",
       approach: "Designed a multi-rotor drone with 4 kg payload capacity and an automated docking station. Led a 15-member team from concept through fabrication using Al 6061-T6 for the frame.",
-      result: "Delivered a fully functional prototype with flight control tuned for stable low-altitude navigation over crop rows.",
+      result: "Delivered a fully functional, flight-ready prototype with autonomous navigation and spray control systems integrated. Formal field testing was deferred pending regulatory clearance and site readiness.",
       skills: ["SolidWorks", "Al 6061-T6 Machining", "Flight Control Systems", "Autonomous Navigation", "Systems Integration", "CAD/CAM"],
       category: "UG Thesis"
     }
@@ -108,7 +108,8 @@ const Portfolio = () => {
       highlights: [
         "Executed systematic process optimization of flax fiber surface treatments using supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to enhance mechanical performance",
         "Fabricated composite laminates directly from treated fibers and conducted comparative tensile testing to assess mechanical property improvements and structural performance between treated and untreated fiber systems",
-        "Built an end-to-end image analysis pipeline (Python, OpenCV) that automated microscopy fiber thickness measurement, reducing per-image processing from 2 min (manual) to <0.5 sec while improving measurement consistency across 1,700 images."
+        "Built an end-to-end image analysis pipeline (Python, OpenCV) that automated microscopy fiber thickness measurement, reducing per-image processing from 2 min (manual) to <0.5 sec while improving measurement consistency across 1,700 images",
+        "Currently developing automated pressure control software (Python PID, state machine, GUI) for a 28 MPa reactor, managing valves, sensors, and actuators with MATLAB/Simulink for simulation and tuning"
       ]
     },
     {
@@ -130,7 +131,7 @@ const Portfolio = () => {
       location: "Chennai, India",
       description: "Performed precision inspection and quality validation for aerospace components in a high-reliability manufacturing environment.",
       highlights: [
-        "Conducted GD&T analysis and dimensional inspection of 50+ aerospace components using coordinate measuring machine (CMM) and precision metrology instruments including height gauges, bore gauges, and micrometers",
+        "Conducted GD&T analysis and dimensional inspection of aerospace components using coordinate measuring machine (CMM) and precision metrology instruments including height gauges, bore gauges, and micrometers",
         "Reviewed engineering drawings and inspection documentation to ensure measurement compliance with aerospace manufacturing quality standards and specifications",
         "Maintained measurement accuracy and traceability alignment with aerospace manufacturing regulatory requirements in tool room environment"
       ]
@@ -489,15 +490,15 @@ const Portfolio = () => {
                   {project.title}
                 </h3>
 
-                <div className="mb-4 space-y-2">
+                <div className="mb-4 space-y-3">
                   {[
                     { label: "Problem", text: project.problem },
                     { label: "Approach", text: project.approach },
                     { label: "Result", text: project.result },
                   ].map(({ label, text }) => (
-                    <div key={label} className="flex gap-2 text-sm leading-relaxed">
-                      <span className={`shrink-0 font-semibold ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
-                        {label}
+                    <div key={label} className="text-sm leading-relaxed">
+                      <span className={`font-semibold ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                        {label}:{' '}
                       </span>
                       <span className={darkMode ? 'text-slate-300' : 'text-slate-600'}>{text}</span>
                     </div>
