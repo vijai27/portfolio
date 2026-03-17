@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Mail, Linkedin, Github, Download, ArrowRight } from 'lucide-react';
+import { Menu, X, Mail, Linkedin, Github, Download, ArrowRight, ExternalLink, Youtube } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -45,7 +45,8 @@ const Portfolio = () => {
       result: "Validated against ASTM D7264 four-point bending tests. Predictions matched within 3.2%, confirming CLT as a reliable pre-fabrication design tool.",
       skills: ["Classical Lamination Theory", "IM7-8552 Carbon/Epoxy", "Vacuum Bagging", "Autoclave Processing", "ASTM D7264", "Flexural Testing"],
       category: "Course Project",
-      github: "https://github.com/vijai27/classical-lamination-theory"
+      github: "https://github.com/vijai27/classical-lamination-theory",
+      report: "https://drive.google.com/file/d/13G6A7Ftmn4NwaHD2LcSCOpv4SImf8tRC/view?usp=drive_link"
     },
     {
       title: "Surrogate Modeling of Composite Laminated Plates",
@@ -59,8 +60,8 @@ const Portfolio = () => {
     {
       title: "Natural Fiber Composites as a Sustainable Alternative to Glass Fiber for Automotive Structural Applications",
       problem: "Glass fiber composites dominate automotive structural parts but raise growing sustainability and recyclability concerns. This project investigates whether natural fibers can serve as a viable, eco-friendly replacement.",
-      approach: "Applied supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to flax fibers to improve surface adhesion and fiber-matrix compatibility. Fabricated composite laminates from treated fibers and conducted comparative tensile testing.",
-      result: "Surface characterization confirmed improved wettability and fiber-matrix adhesion following treatment. Tensile property evaluation is ongoing as part of a broader mechanical performance assessment.",
+      approach: "Applied supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to flax fibers. The core hypothesis is that SCF treatment acts analogously to shot peening, selectively removing weak surface fibers and defects rather than improving adhesion, thereby strengthening the surviving fiber population. Fabricated composite laminates from treated fibers for comparative mechanical testing.",
+      result: "SEM and microscopy characterization revealed surface morphology changes in treated fibers consistent with selective removal of weak fiber segments. Tensile property evaluation is ongoing to validate the weak-fiber removal hypothesis and quantify its effect on net fiber strength distribution.",
       skills: ["Supercritical Fluid Processing", "TiO₂ Nanoparticles", "Composite Manufacturing", "Tensile Testing", "MATLAB", "Data Automation"],
       category: "Graduate Research"
     },
@@ -70,7 +71,8 @@ const Portfolio = () => {
       approach: "Used FAST analysis to identify non-value-adding features, then optimized the assembly sequence and tightened GD&T specifications.",
       result: "Redesigned components achieved 40% better manufacturability and 15% cost reduction, validated through BOM review and tolerance stack-up analysis.",
       skills: ["Fusion 360", "DFMA", "GD&T", "FAST Analysis", "BOM Development", "Assembly Optimization"],
-      category: "Course Project"
+      category: "Course Project",
+      video: "https://youtu.be/3rBzNfOF1Vo?si=DJq1OpNS225x4DFG"
     },
     {
       title: "Laser Surface Texturing for Dental Implant Applications",
@@ -78,7 +80,8 @@ const Portfolio = () => {
       approach: "Designed bio-inspired texturing patterns and applied CO₂ laser processing to Ti-6Al-4V substrates, using SEM and contact angle analysis to characterize each iteration.",
       result: "Optimized pattern geometry achieved 44% improvement in hydrophobicity, demonstrating surface texture as a viable, process-controllable path to better implant performance.",
       skills: ["CO₂ Laser Processing", "Ti-6Al-4V", "SEM", "Contact Angle Analysis", "Surface Metrology", "Materials Characterization"],
-      category: "UG Thesis"
+      category: "UG Thesis",
+      report: "https://drive.google.com/file/d/1C-xBcF4XkjhQuF_K3ElxzK2kFXH-1vtY/view?usp=sharing"
     },
     {
       title: "Hybrid Ballistic Composite Development",
@@ -86,7 +89,8 @@ const Portfolio = () => {
       approach: "Fabricated Kevlar-29/flax hybrid laminates via vacuum bagging, systematically varying fiber ratios and stacking sequences, then tested under high-velocity impact using a gas gun apparatus.",
       result: "The 13-layer hybrid laminate (8 Kevlar-29 + 5 flax, 60.4% fiber volume fraction) absorbed 165–202 J per impact across gas gun specimens fired at up to 199 m/s. Simulation confirmed that introducing flax layers beyond the 8th Kevlar layer improved energy distribution over a pure Kevlar-29 stack, with the 6 mm plate demonstrating an energy absorption capacity of ~3.67 × 10⁵ W.",
       skills: ["Kevlar-29", "Flax Fibers", "Vacuum Bagging", "Gas Gun Testing", "High-Velocity Impact Testing", "Failure Analysis"],
-      category: "UG Thesis"
+      category: "UG Thesis",
+      report: "https://drive.google.com/file/d/1fpv112fJFyaZCfaz4pgbLKEkBH5wpeAj/view?usp=drive_link"
     },
     {
       title: "Autonomous Agricultural Drone Platform",
@@ -527,21 +531,53 @@ const Portfolio = () => {
                   </div>
                 </div>
 
-                {project.github && (
-                  <div className="mt-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
-                        darkMode
-                          ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
-                          : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-                      }`}
-                    >
-                      <Github size={16} />
-                      View on GitHub
-                    </a>
+                {(project.github || project.report || project.video) && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                          darkMode
+                            ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
+                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+                        }`}
+                      >
+                        <Github size={16} />
+                        GitHub
+                      </a>
+                    )}
+                    {project.report && (
+                      <a
+                        href={project.report}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                          darkMode
+                            ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
+                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+                        }`}
+                      >
+                        <ExternalLink size={16} />
+                        Report
+                      </a>
+                    )}
+                    {project.video && (
+                      <a
+                        href={project.video}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                          darkMode
+                            ? 'bg-red-900/40 hover:bg-red-900/60 text-red-400 hover:text-red-300 border border-red-900/50'
+                            : 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'
+                        }`}
+                      >
+                        <Youtube size={16} />
+                        Video
+                      </a>
+                    )}
                   </div>
                 )}
               </div>
