@@ -61,7 +61,7 @@ const Portfolio = () => {
       title: "Natural Fiber Composites as a Sustainable Alternative to Glass Fiber for Automotive Structural Applications",
       problem: "Glass fiber composites dominate automotive structural parts but raise growing sustainability and recyclability concerns. This project investigates whether natural fibers can serve as a viable, eco-friendly replacement.",
       approach: "Applied supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to flax fibers. The core hypothesis is that SCF treatment acts analogously to shot peening, selectively removing weak surface fibers and defects rather than improving adhesion, thereby strengthening the surviving fiber population. Fabricated composite laminates from treated fibers for comparative mechanical testing.",
-      result: "SEM and microscopy characterization revealed surface morphology changes in treated fibers consistent with selective removal of weak fiber segments. Tensile property evaluation is ongoing to validate the weak-fiber removal hypothesis and quantify its effect on net fiber strength distribution.",
+      result: "Tensile property evaluation is ongoing to validate the weak-fiber removal hypothesis and quantify its effect on net fiber strength distribution.",
       skills: ["Supercritical Fluid Processing", "TiO₂ Nanoparticles", "Composite Manufacturing", "Tensile Testing", "MATLAB", "Data Automation"],
       category: "Graduate Research"
     },
