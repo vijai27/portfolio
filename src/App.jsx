@@ -84,7 +84,7 @@ const Portfolio = () => {
       title: "Hybrid Ballistic Composite Development",
       problem: "Pure Kevlar armor is effective but expensive and non-sustainable. Can natural fibers partially replace it without sacrificing ballistic performance?",
       approach: "Fabricated Kevlar-29/flax hybrid laminates via vacuum bagging, systematically varying fiber ratios and stacking sequences, then tested under high-velocity impact using a gas gun apparatus.",
-      result: "Failure mode analysis established the hybrid configuration that best balances energy absorption, weight, and material cost.",
+      result: "The 13-layer hybrid laminate (8 Kevlar-29 + 5 flax, 60.4% fiber volume fraction) absorbed 165–202 J per impact across gas gun specimens fired at up to 199 m/s. Simulation confirmed that introducing flax layers beyond the 8th Kevlar layer improved energy distribution over a pure Kevlar-29 stack, with the 6 mm plate demonstrating an energy absorption capacity of ~3.67 × 10⁵ W.",
       skills: ["Kevlar-29", "Flax Fibers", "Vacuum Bagging", "Gas Gun Testing", "High-Velocity Impact Testing", "Failure Analysis"],
       category: "UG Thesis"
     },
@@ -420,13 +420,13 @@ const Portfolio = () => {
                   <div className="space-y-3">
                     <div>
                       <p className="font-medium">MSE Aerospace Engineering</p>
-                      <p className="text-sm">University of Michigan </p>
+                      <p className="text-sm">University of Michigan | GPA: 3.73</p>
                       <p className="text-sm">Focus: Structures & Materials</p>
                       <p className="text-sm opacity-70">Aug 2024 - May 2026</p>
                     </div>
                     <div className="pt-2">
                       <p className="font-medium">BE Manufacturing Engineering</p>
-                      <p className="text-sm">College of Engineering Guindy </p>
+                      <p className="text-sm">College of Engineering Guindy | GPA: 3.71</p>
                       <p className="text-sm opacity-70">Graduated Apr 2024</p>
                     </div>
                   </div>
