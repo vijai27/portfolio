@@ -96,7 +96,7 @@ const Portfolio = () => {
       title: "Autonomous Agricultural Drone Platform",
       problem: "Manual crop spraying in small-scale Indian farms is labor-intensive, imprecise, and exposes workers to chemicals.",
       approach: "Designed a multi-rotor drone with 4 kg payload capacity and an automated docking station. Led a 15-member team from concept through fabrication using Al 6061-T6 for the frame.",
-      result: "Delivered a fully functional, flight-ready prototype with autonomous navigation and spray control systems integrated. Formal field testing was deferred pending regulatory clearance and site readiness.",
+      result: "Designed and assembled a multi-rotor airframe with spray and navigation systems integrated. Prototype development was suspended during bench testing before reaching flight-ready status.",
       skills: ["SolidWorks", "Al 6061-T6 Machining", "Flight Control Systems", "Autonomous Navigation", "Systems Integration", "CAD/CAM"],
       category: "UG Thesis"
     }
