@@ -466,9 +466,24 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section id="projects" className={`py-24 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'} mb-12`}>
-            Projects
-          </h2>
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-12">
+            <h2 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+              Projects
+            </h2>
+            <a
+              href="https://drive.google.com/drive/folders/1mxykefmPrz2PD7OXBjWFQlQdOovSdHox?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                darkMode
+                  ? 'bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-600/40'
+                  : 'bg-blue-50 hover:bg-blue-100 text-blue-600 border border-blue-200'
+              }`}
+            >
+              <ExternalLink size={15} />
+              View Project Media
+            </a>
+          </div>
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <div
