@@ -466,7 +466,8 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section id="projects" className={`py-24 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-12">
+          {/* Section header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-20">
             <h2 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Projects
             </h2>
@@ -484,117 +485,115 @@ const Portfolio = () => {
               View Project Media
             </a>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+
+          {/* Project rows */}
+          <div className="space-y-32">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`p-6 rounded-xl transition-all hover:scale-[1.02] ${
-                  darkMode
-                    ? 'bg-slate-900/50 border border-slate-800 hover:border-blue-400/50 shadow-xl shadow-black/20'
-                    : 'bg-white border border-slate-200 hover:border-blue-300 shadow-lg'
-                }`}
-                style={{
-                  animation: `fadeInUp 0.6s ease-out ${index * 0.1}s backwards`
-                }}
+                className="grid md:grid-cols-[42%_1fr] gap-12 lg:gap-20 items-start"
+                style={{ animation: `fadeInUp 0.7s ease-out ${index * 0.08}s backwards` }}
               >
-                <div className="mb-3">
-                  <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                    darkMode ? 'bg-blue-400/10 text-blue-400' : 'bg-blue-50 text-blue-600'
-                  }`}>
-                    {project.category}
-                  </span>
-                </div>
-                
-                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                  {project.title}
-                </h3>
-
-                <div className="mb-4 space-y-3">
-                  {[
-                    { label: "Problem", text: project.problem },
-                    { label: "Approach", text: project.approach },
-                    { label: "Result", text: project.result },
-                  ].map(({ label, text }) => (
-                    <div key={label} className="text-sm leading-relaxed">
-                      <span className={`font-semibold ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
-                        {label}:{' '}
-                      </span>
-                      <span className={darkMode ? 'text-slate-300' : 'text-slate-600'}>{text}</span>
+                {/* Left — image panel */}
+                <div className={`rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center ${
+                  darkMode ? 'bg-slate-900 border border-slate-800' : 'bg-slate-200 border border-slate-200'
+                }`}>
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center w-full h-full gap-3 px-8 text-center">
+                      <div className={`text-5xl font-black tracking-tighter select-none ${
+                        darkMode ? 'text-slate-800' : 'text-slate-300'
+                      }`}>
+                        {project.title.split(' ').slice(0, 2).map(w => w[0]).join('')}
+                      </div>
+                      <span className={`text-xs uppercase tracking-widest font-medium ${
+                        darkMode ? 'text-slate-600' : 'text-slate-400'
+                      }`}>{project.category}</span>
                     </div>
-                  ))}
+                  )}
                 </div>
 
-                <div>
-                  <h4 className={`text-xs font-semibold uppercase tracking-wider mb-2 ${
-                    darkMode ? 'text-slate-400' : 'text-slate-500'
-                  }`}>
-                    Skills Used
-                  </h4>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.skills.map((skill, i) => (
-                      <span
-                        key={i}
-                        className={`px-2.5 py-1 text-xs rounded-md ${
-                          darkMode
-                            ? 'bg-slate-800 text-slate-300 border border-slate-700'
-                            : 'bg-slate-100 text-slate-700 border border-slate-200'
-                        }`}
-                      >
-                        {skill}
-                      </span>
+                {/* Right — content */}
+                <div className="space-y-6 pt-2">
+                  {/* Category + title */}
+                  <div>
+                    <span className={`text-xs font-semibold uppercase tracking-widest ${
+                      darkMode ? 'text-blue-400' : 'text-blue-600'
+                    }`}>{project.category}</span>
+                    <h3 className={`mt-2 text-2xl lg:text-3xl font-bold leading-snug ${
+                      darkMode ? 'text-white' : 'text-slate-900'
+                    }`}>{project.title}</h3>
+                  </div>
+
+                  {/* Divider */}
+                  <div className={`w-12 h-0.5 ${darkMode ? 'bg-blue-400' : 'bg-blue-500'}`} />
+
+                  {/* Problem / Approach / Result */}
+                  <div className="space-y-4">
+                    {[
+                      { label: 'Problem', text: project.problem },
+                      { label: 'Approach', text: project.approach },
+                      { label: 'Result', text: project.result },
+                    ].map(({ label, text }) => (
+                      <div key={label}>
+                        <p className={`text-xs font-bold uppercase tracking-widest mb-1 ${
+                          darkMode ? 'text-blue-400' : 'text-blue-600'
+                        }`}>{label}</p>
+                        <p className={`text-sm leading-relaxed ${
+                          darkMode ? 'text-slate-300' : 'text-slate-600'
+                        }`}>{text}</p>
+                      </div>
                     ))}
                   </div>
-                </div>
 
-                {(project.github || project.report || project.video) && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
-                          darkMode
-                            ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
-                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-                        }`}
-                      >
-                        <Github size={16} />
-                        GitHub
-                      </a>
-                    )}
-                    {project.report && (
-                      <a
-                        href={project.report}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
-                          darkMode
-                            ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
-                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-                        }`}
-                      >
-                        <ExternalLink size={16} />
-                        Report
-                      </a>
-                    )}
-                    {project.video && (
-                      <a
-                        href={project.video}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
-                          darkMode
-                            ? 'bg-red-900/40 hover:bg-red-900/60 text-red-400 hover:text-red-300 border border-red-900/50'
-                            : 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'
-                        }`}
-                      >
-                        <Youtube size={16} />
-                        Video
-                      </a>
-                    )}
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {project.skills.map((skill, i) => (
+                      <span key={i} className={`px-3 py-1 text-xs rounded-full font-medium ${
+                        darkMode
+                          ? 'bg-slate-800 text-slate-300 border border-slate-700'
+                          : 'bg-white text-slate-600 border border-slate-300'
+                      }`}>{skill}</span>
+                    ))}
                   </div>
-                )}
+
+                  {/* Links */}
+                  {(project.github || project.report || project.video) && (
+                    <div className="flex flex-wrap gap-3 pt-1">
+                      {project.github && (
+                        <a href={project.github} target="_blank" rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                            darkMode
+                              ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
+                              : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-300'
+                          }`}>
+                          <Github size={15} /> GitHub
+                        </a>
+                      )}
+                      {project.report && (
+                        <a href={project.report} target="_blank" rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                            darkMode
+                              ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
+                              : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-300'
+                          }`}>
+                          <ExternalLink size={15} /> Report
+                        </a>
+                      )}
+                      {project.video && (
+                        <a href={project.video} target="_blank" rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                            darkMode
+                              ? 'bg-red-900/40 hover:bg-red-900/60 text-red-400 hover:text-red-300 border border-red-900/50'
+                              : 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'
+                          }`}>
+                          <Youtube size={15} /> Video
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
