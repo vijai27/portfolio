@@ -319,8 +319,7 @@ const Portfolio = () => {
                 Graduate Student | University of Michigan
               </div>
               <h1 className={`text-5xl md:text-6xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'} tracking-tight leading-tight`}>
-                Vijai Venkatesh<br />
-                <span className={darkMode ? 'text-blue-400' : 'text-blue-600'}>Natarajan Ganesh Babu</span>
+                Vijai <span className={darkMode ? 'text-blue-400' : 'text-blue-600'}>Venkatesh</span>
               </h1>
               <p className={`text-xl ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                 Aerospace Engineer specializing in Structures, Materials & Manufacturing
