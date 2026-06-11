@@ -339,7 +339,7 @@ const Portfolio = () => {
               <div className={`inline-block px-4 py-2 rounded-full ${
                 darkMode ? 'bg-blue-400/10 text-blue-400' : 'bg-blue-50 text-blue-600'
               } text-sm font-medium`}>
-                Graduate Student | University of Michigan
+                M.S. Aerospace Engineering | University of Michigan
               </div>
               <h1 className={`text-5xl md:text-6xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'} tracking-tight leading-tight`}>
                 Vijai <span className={darkMode ? 'text-blue-400' : 'text-blue-600'}>Venkatesh</span>
@@ -431,7 +431,7 @@ const Portfolio = () => {
             </h2>
             <div className="space-y-6">
               <p className={`text-lg leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                I'm a Master's student in Aerospace Engineering at the University of Michigan, specializing in Structures and Materials with a strong foundation in Manufacturing Engineering. My work focuses on advancing composite materials, computational mechanics, and manufacturing processes for aerospace applications.
+                I hold a Master's degree in Aerospace Engineering from the University of Michigan, specializing in Structures and Materials with a strong foundation in Manufacturing Engineering. My work focuses on advancing composite materials, computational mechanics, and manufacturing processes for aerospace applications.
               </p>
               <p className={`text-lg leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 Currently, I'm a Graduate Research Assistant at The Taub Group, where I'm developing innovative treatment methods for natural fiber composites using supercritical fluids and nanoparticle integration. My research aims to enhance the mechanical performance and sustainability of composite materials for aerospace and automotive industries. I also recently completed a consulting engagement with NeoNest Global, where I developed scalable manufacturing infrastructure for medical device clinical trials across international markets.
@@ -440,44 +440,22 @@ const Portfolio = () => {
                 My technical interests span structural analysis, composite design and manufacturing, finite element modeling, and design for manufacturing. I'm passionate about developing computational tools that accelerate engineering design cycles and implementing data-driven approaches to materials development and process optimization.
               </p>
 
-              <div className={`grid md:grid-cols-2 gap-6 pt-8 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+              <div className={`pt-8 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 <div className={`p-6 rounded-lg ${darkMode ? 'bg-slate-800/50 border border-slate-700' : 'bg-slate-50 border border-slate-200'}`}>
-                  <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>Education</h3>
-                  <div className="space-y-3">
+                  <h3 className={`text-xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>Education</h3>
+                  <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <p className="font-medium">MSE Aerospace Engineering</p>
-                      <p className="text-sm">University of Michigan | GPA: 3.73</p>
+                      <p className="text-sm">University of Michigan</p>
                       <p className="text-sm">Focus: Structures & Materials</p>
-                      <p className="text-sm opacity-70">Aug 2024 - May 2026</p>
+                      <p className="text-sm opacity-70">May 2026</p>
                     </div>
-                    <div className="pt-2">
+                    <div>
                       <p className="font-medium">BE Manufacturing Engineering</p>
-                      <p className="text-sm">College of Engineering Guindy | GPA: 3.71</p>
-                      <p className="text-sm opacity-70">Graduated Apr 2024</p>
+                      <p className="text-sm">College of Engineering Guindy</p>
+                      <p className="text-sm opacity-70">Apr 2024</p>
                     </div>
                   </div>
-                </div>
-
-                <div className={`p-6 rounded-lg ${darkMode ? 'bg-slate-800/50 border border-slate-700' : 'bg-slate-50 border border-slate-200'}`}>
-                  <h3 className={`text-xl font-semibold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>Research Interests</h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <ArrowRight size={18} className={`mr-2 mt-1 flex-shrink-0 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-                      <span>Composite Materials & Manufacturing</span>
-                    </li>
-                    <li className="flex items-start">
-                      <ArrowRight size={18} className={`mr-2 mt-1 flex-shrink-0 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-                      <span>Design for Manufacturing & Assembly</span>
-                    </li>
-                    <li className="flex items-start">
-                      <ArrowRight size={18} className={`mr-2 mt-1 flex-shrink-0 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-                      <span>Advanced Manufacturing Processes</span>
-                    </li>
-                    <li className="flex items-start">
-                      <ArrowRight size={18} className={`mr-2 mt-1 flex-shrink-0 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-                      <span>Sustainable Materials</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
