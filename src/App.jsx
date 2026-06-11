@@ -472,7 +472,7 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section id="projects" className={`py-24 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-12">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-20">
             <h2 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
               Projects
             </h2>
@@ -490,31 +490,35 @@ const Portfolio = () => {
               View Project Media
             </a>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+
+          <div className="space-y-32">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`rounded-xl overflow-hidden transition-all hover:scale-[1.02] ${
-                  darkMode
-                    ? 'bg-slate-900/50 border border-slate-800 hover:border-blue-400/50 shadow-xl shadow-black/20'
-                    : 'bg-white border border-slate-200 hover:border-blue-300 shadow-lg'
-                }`}
-                style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s backwards` }}
+                className="grid md:grid-cols-[42%_1fr] gap-12 lg:gap-20 items-start"
+                style={{ animation: `fadeInUp 0.7s ease-out ${index * 0.08}s backwards` }}
               >
-                {/* Image strip */}
-                {project.images && project.images.length > 0 && (
-                  <div className={`w-full h-44 overflow-hidden ${
-                    darkMode ? 'bg-slate-800' : 'bg-slate-100'
-                  }`}>
-                    <img
-                      src={project.images[0]}
-                      alt={project.title}
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
-                )}
+                {/* Left — image stack */}
+                <div className="flex flex-col gap-3">
+                  {project.images && project.images.length > 0 ? (
+                    project.images.map((src, i) => (
+                      <div key={i} className={`rounded-xl overflow-hidden ${darkMode ? 'bg-slate-900' : 'bg-slate-200'}`}>
+                        <img src={src} alt={`${project.title} ${i + 1}`} className="w-full h-auto object-cover" />
+                      </div>
+                    ))
+                  ) : (
+                    <div className={`rounded-2xl aspect-[4/3] flex items-center justify-center ${
+                      darkMode ? 'bg-slate-900 border border-slate-800' : 'bg-slate-200 border border-slate-200'
+                    }`}>
+                      <span className={`text-5xl font-black select-none ${darkMode ? 'text-slate-800' : 'text-slate-300'}`}>
+                        {project.title.split(' ').slice(0, 2).map(w => w[0]).join('')}
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-                <div className="p-6">
+                {/* Right — content */}
+                <div className="pt-2">
                   <div className="mb-3">
                     <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
                       darkMode ? 'bg-blue-400/10 text-blue-400' : 'bg-blue-50 text-blue-600'
@@ -523,11 +527,11 @@ const Portfolio = () => {
                     </span>
                   </div>
 
-                  <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                  <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                     {project.title}
                   </h3>
 
-                  <div className="mb-4 space-y-3">
+                  <div className="mb-5 space-y-3">
                     {[
                       { label: "Problem", text: project.problem },
                       { label: "Approach", text: project.approach },
@@ -542,39 +546,28 @@ const Portfolio = () => {
                     ))}
                   </div>
 
-                  <div>
-                    <h4 className={`text-xs font-semibold uppercase tracking-wider mb-2 ${
-                      darkMode ? 'text-slate-400' : 'text-slate-500'
-                    }`}>
-                      Skills Used
-                    </h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.skills.map((skill, i) => (
-                        <span
-                          key={i}
-                          className={`px-2.5 py-1 text-xs rounded-md ${
-                            darkMode
-                              ? 'bg-slate-800 text-slate-300 border border-slate-700'
-                              : 'bg-slate-100 text-slate-700 border border-slate-200'
-                          }`}
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
+                  <h4 className={`text-xs font-semibold uppercase tracking-wider mb-2 ${
+                    darkMode ? 'text-slate-400' : 'text-slate-500'
+                  }`}>Skills Used</h4>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.skills.map((skill, i) => (
+                      <span key={i} className={`px-2.5 py-1 text-xs rounded-md ${
+                        darkMode
+                          ? 'bg-slate-800 text-slate-300 border border-slate-700'
+                          : 'bg-slate-100 text-slate-700 border border-slate-200'
+                      }`}>{skill}</span>
+                    ))}
                   </div>
 
                   {(project.github || project.report || project.video) && (
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {project.github && (
                         <a href={project.github} target="_blank" rel="noopener noreferrer"
                           className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
                             darkMode
                               ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
                               : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-                          }`}>
-                          <Github size={16} /> GitHub
-                        </a>
+                          }`}><Github size={16} /> GitHub</a>
                       )}
                       {project.report && (
                         <a href={project.report} target="_blank" rel="noopener noreferrer"
@@ -582,9 +575,7 @@ const Portfolio = () => {
                             darkMode
                               ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
                               : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-                          }`}>
-                          <ExternalLink size={16} /> Report
-                        </a>
+                          }`}><ExternalLink size={16} /> Report</a>
                       )}
                       {project.video && (
                         <a href={project.video} target="_blank" rel="noopener noreferrer"
@@ -592,9 +583,7 @@ const Portfolio = () => {
                             darkMode
                               ? 'bg-red-900/40 hover:bg-red-900/60 text-red-400 hover:text-red-300 border border-red-900/50'
                               : 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'
-                          }`}>
-                          <Youtube size={16} /> Video
-                        </a>
+                          }`}><Youtube size={16} /> Video</a>
                       )}
                     </div>
                   )}
