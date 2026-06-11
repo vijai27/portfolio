@@ -343,7 +343,7 @@ const Portfolio = () => {
               <div className={`inline-block px-4 py-2 rounded-full ${
                 darkMode ? 'bg-blue-400/10 text-blue-400' : 'bg-blue-50 text-blue-600'
               } text-sm font-medium`}>
-                M.S. Aerospace Engineering | University of Michigan
+                MSE Aerospace Engineering | University of Michigan
               </div>
               <h1 className={`text-5xl md:text-6xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'} tracking-tight leading-tight`}>
                 Vijai <span className={darkMode ? 'text-blue-400' : 'text-blue-600'}>Venkatesh</span>
@@ -435,7 +435,7 @@ const Portfolio = () => {
             </h2>
             <div className="space-y-6">
               <p className={`text-lg leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
-                I hold a Master's degree in Aerospace Engineering from the University of Michigan, specializing in Structures and Materials with a strong foundation in Manufacturing Engineering. My work focuses on advancing composite materials, computational mechanics, and manufacturing processes for aerospace applications.
+                I hold an MSE in Aerospace Engineering from the University of Michigan, specializing in Structures and Materials with a strong foundation in Manufacturing Engineering. My work focuses on advancing composite materials, computational mechanics, and manufacturing processes for aerospace applications.
               </p>
               <p className={`text-lg leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 Currently, I'm a Graduate Research Assistant at The Taub Group, where I'm developing innovative treatment methods for natural fiber composites using supercritical fluids and nanoparticle integration. My research aims to enhance the mechanical performance and sustainability of composite materials for aerospace and automotive industries. I also recently completed a consulting engagement with NeoNest Global, where I developed scalable manufacturing infrastructure for medical device clinical trials across international markets.
