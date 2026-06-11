@@ -8,6 +8,7 @@ const Portfolio = () => {
   const [scrolled, setScrolled] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeImg, setActiveImg] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   
   const profileImage = '/profile.jpg';
 
@@ -40,10 +41,13 @@ const Portfolio = () => {
   };
 
   const openProject = (project) => { setSelectedProject(project); setActiveImg(0); document.body.style.overflow = 'hidden'; };
-  const closeProject = () => { setSelectedProject(null); setActiveImg(0); document.body.style.overflow = ''; };
+  const closeProject = () => { setSelectedProject(null); setActiveImg(0); setLightboxOpen(false); document.body.style.overflow = ''; };
+  const openLightbox = () => setLightboxOpen(true);
+  const closeLightbox = () => setLightboxOpen(false);
 
   useEffect(() => {
     const onKey = (e) => {
+      if (lightboxOpen && e.key === 'Escape') { closeLightbox(); return; }
       if (!selectedProject) return;
       if (e.key === 'Escape') closeProject();
       if (e.key === 'ArrowRight') setActiveImg(i => Math.min(i + 1, (selectedProject.images?.length || 1) - 1));
@@ -51,7 +55,7 @@ const Portfolio = () => {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [selectedProject]);
+  }, [selectedProject, lightboxOpen]);
 
   const projects = [
     {
@@ -599,14 +603,23 @@ const Portfolio = () => {
               {/* Image gallery */}
               {selectedProject.images?.length > 0 && (
                 <div className="space-y-3">
-                  {/* Main image */}
-                  <div className={`rounded-xl overflow-hidden flex items-center justify-center p-3 ${
-                    darkMode ? 'bg-slate-800' : 'bg-slate-100'}`} style={{ minHeight: '280px' }}>
+                  {/* Main image — click to open lightbox */}
+                  <div
+                    className={`rounded-xl overflow-hidden flex items-center justify-center p-3 cursor-zoom-in relative group ${
+                      darkMode ? 'bg-slate-800' : 'bg-slate-100'}`}
+                    style={{ minHeight: '280px' }}
+                    onClick={openLightbox}
+                  >
                     <img
                       src={selectedProject.images[activeImg]}
                       alt={`${selectedProject.title} ${activeImg + 1}`}
                       className="max-w-full max-h-72 object-contain rounded-lg"
                     />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-xl">
+                      <div className="bg-black/60 text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                        <ZoomIn size={13} /> Click to zoom
+                      </div>
+                    </div>
                   </div>
                   {/* Navigation */}
                   {selectedProject.images.length > 1 && (
@@ -699,6 +712,46 @@ const Portfolio = () => {
                 )}
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Lightbox — full-screen image zoom */}
+      {lightboxOpen && selectedProject && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95"
+          onClick={closeLightbox}>
+          <button onClick={closeLightbox}
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-10">
+            <X size={24} />
+          </button>
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/50 text-xs">
+            Click anywhere to close · Scroll to pan
+          </div>
+          {/* Prev/Next in lightbox */}
+          {selectedProject.images.length > 1 && (
+            <>
+              <button onClick={e => { e.stopPropagation(); setActiveImg(i => Math.max(i - 1, 0)); }}
+                disabled={activeImg === 0}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white disabled:opacity-20 transition-colors z-10">
+                <ChevronLeft size={28} />
+              </button>
+              <button onClick={e => { e.stopPropagation(); setActiveImg(i => Math.min(i + 1, selectedProject.images.length - 1)); }}
+                disabled={activeImg === selectedProject.images.length - 1}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white disabled:opacity-20 transition-colors z-10">
+                <ChevronRight size={28} />
+              </button>
+            </>
+          )}
+          <div className="overflow-auto max-w-full max-h-full p-12" onClick={e => e.stopPropagation()}>
+            <img
+              src={selectedProject.images[activeImg]}
+              alt={`${selectedProject.title} ${activeImg + 1}`}
+              className="max-w-none w-auto"
+              style={{ maxHeight: '85vh', minWidth: '60vw' }}
+            />
+          </div>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/40 text-xs">
+            {activeImg + 1} / {selectedProject.images.length}
           </div>
         </div>
       )}
