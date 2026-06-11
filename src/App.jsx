@@ -46,7 +46,8 @@ const Portfolio = () => {
       skills: ["Classical Lamination Theory", "IM7-8552 Carbon/Epoxy", "Vacuum Bagging", "Autoclave Processing", "ASTM D7264", "Flexural Testing"],
       category: "Course Project",
       github: "https://github.com/vijai27/classical-lamination-theory",
-      report: "https://drive.google.com/file/d/13G6A7Ftmn4NwaHD2LcSCOpv4SImf8tRC/view?usp=drive_link"
+      report: "https://drive.google.com/file/d/13G6A7Ftmn4NwaHD2LcSCOpv4SImf8tRC/view?usp=drive_link",
+      images: ["/P1_Vacuum Bagging.png", "/P1_Testing.png", "/P1_Sample.png"]
     },
     {
       title: "Surrogate Modeling of Composite Laminated Plates",
@@ -55,7 +56,8 @@ const Portfolio = () => {
       result: "Achieved high R² across all 3 analysis modes (buckling, bending, frequency), cutting evaluation time while covering asymmetric laminate configurations.",
       skills: ["Python", "ComposiPy", "Morris Screening", "Latin Hypercube Sampling", "Surrogate Modeling", "FEM"],
       category: "Course Project",
-      github: "https://github.com/vijai27/Surrogate-Modeling/tree/main"
+      github: "https://github.com/vijai27/Surrogate-Modeling/tree/main",
+      images: ["/P2_CONOPS.png", "/P2_Design Space.png", "/P2_RSM.png", "/P2_Residual Histogram.png"]
     },
     {
       title: "Natural Fiber Composites as a Sustainable Alternative to Glass Fiber for Automotive Structural Applications",
@@ -63,7 +65,8 @@ const Portfolio = () => {
       approach: "Applied supercritical fluid technology (CO₂, N₂, Ar) with TiO₂ nanoparticle functionalization to flax fibers. The core hypothesis is that SCF treatment acts analogously to shot peening, selectively removing weak surface fibers and defects rather than improving adhesion, thereby strengthening the surviving fiber population. Fabricated composite laminates from treated fibers for comparative mechanical testing.",
       result: "Tensile property evaluation is ongoing to validate the weak-fiber removal hypothesis and quantify its effect on net fiber strength distribution.",
       skills: ["Supercritical Fluid Processing", "TiO₂ Nanoparticles", "Composite Manufacturing", "Tensile Testing", "MATLAB", "Data Automation"],
-      category: "Graduate Research"
+      category: "Graduate Research",
+      images: ["/P3_Pressure Vessel.jpeg", "/P3_Fiber Epoxy.jpeg", "/P3_Samples.jpeg", "/P3_Image.png"]
     },
     {
       title: "Gear Pump Analysis & Redesign",
@@ -72,7 +75,8 @@ const Portfolio = () => {
       result: "Redesigned components achieved 40% better manufacturability and 15% cost reduction, validated through BOM review and tolerance stack-up analysis.",
       skills: ["Fusion 360", "DFMA", "GD&T", "FAST Analysis", "BOM Development", "Assembly Optimization"],
       category: "Course Project",
-      video: "https://youtu.be/3rBzNfOF1Vo?si=DJq1OpNS225x4DFG"
+      video: "https://youtu.be/3rBzNfOF1Vo?si=DJq1OpNS225x4DFG",
+      images: ["/P4_Final.png", "/P4_Part.png", "/P4_FAST.png", "/P4_DFM.png"]
     },
     {
       title: "Laser Surface Texturing for Dental Implant Applications",
@@ -81,7 +85,8 @@ const Portfolio = () => {
       result: "Optimized pattern geometry achieved 44% improvement in hydrophobicity, demonstrating surface texture as a viable, process-controllable path to better implant performance.",
       skills: ["CO₂ Laser Processing", "Ti-6Al-4V", "SEM", "Contact Angle Analysis", "Surface Metrology", "Materials Characterization"],
       category: "UG Thesis",
-      report: "https://drive.google.com/file/d/1C-xBcF4XkjhQuF_K3ElxzK2kFXH-1vtY/view?usp=sharing"
+      report: "https://drive.google.com/file/d/1C-xBcF4XkjhQuF_K3ElxzK2kFXH-1vtY/view?usp=sharing",
+      images: ["/P5_Design 1.png", "/P5_Design 2.png", "/P5_SEM.png", "/P5_Comparison.png"]
     },
     {
       title: "Hybrid Ballistic Composite Development",
@@ -90,7 +95,8 @@ const Portfolio = () => {
       result: "The 13-layer hybrid laminate (8 Kevlar-29 + 5 flax, 60.4% fiber volume fraction) absorbed 165–202 J per impact across gas gun specimens fired at up to 199 m/s. Simulation confirmed that introducing flax layers beyond the 8th Kevlar layer improved energy distribution over a pure Kevlar-29 stack, with the 6 mm plate demonstrating an energy absorption capacity of ~3.67 × 10⁵ W.",
       skills: ["Kevlar-29", "Flax Fibers", "Vacuum Bagging", "Gas Gun Testing", "High-Velocity Impact Testing", "Failure Analysis"],
       category: "UG Thesis",
-      report: "https://drive.google.com/file/d/1fpv112fJFyaZCfaz4pgbLKEkBH5wpeAj/view?usp=drive_link"
+      report: "https://drive.google.com/file/d/1fpv112fJFyaZCfaz4pgbLKEkBH5wpeAj/view?usp=drive_link",
+      images: ["/P6_Process.png", "/P6_testing.png", "/P6_Final Sample.png"]
     },
     {
       title: "Autonomous Agricultural Drone Platform",
@@ -98,7 +104,8 @@ const Portfolio = () => {
       approach: "Designed a multi-rotor drone with 4 kg payload capacity and an automated docking station. Led a 15-member team from concept through fabrication using Al 6061-T6 for the frame.",
       result: "Designed and assembled a multi-rotor airframe with spray and navigation systems integrated. Prototype development was suspended during bench testing before reaching flight-ready status.",
       skills: ["SolidWorks", "Al 6061-T6 Machining", "Flight Control Systems", "Autonomous Navigation", "Systems Integration", "CAD/CAM"],
-      category: "UG Thesis"
+      category: "UG Thesis",
+      images: ["/P7_Model.png"]
     }
   ];
 
@@ -493,22 +500,34 @@ const Portfolio = () => {
                 className="grid md:grid-cols-[42%_1fr] gap-12 lg:gap-20 items-start"
                 style={{ animation: `fadeInUp 0.7s ease-out ${index * 0.08}s backwards` }}
               >
-                {/* Left — image panel */}
-                <div className={`rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center ${
-                  darkMode ? 'bg-slate-900 border border-slate-800' : 'bg-slate-200 border border-slate-200'
-                }`}>
-                  {project.image ? (
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="flex flex-col items-center justify-center w-full h-full gap-3 px-8 text-center">
-                      <div className={`text-5xl font-black tracking-tighter select-none ${
-                        darkMode ? 'text-slate-800' : 'text-slate-300'
+                {/* Left — image stack */}
+                <div className="flex flex-col gap-3">
+                  {project.images && project.images.length > 0 ? (
+                    project.images.map((src, i) => (
+                      <div key={i} className={`rounded-xl overflow-hidden ${
+                        darkMode ? 'bg-slate-900' : 'bg-slate-200'
                       }`}>
-                        {project.title.split(' ').slice(0, 2).map(w => w[0]).join('')}
+                        <img
+                          src={src}
+                          alt={`${project.title} ${i + 1}`}
+                          className="w-full h-auto object-cover"
+                        />
                       </div>
-                      <span className={`text-xs uppercase tracking-widest font-medium ${
-                        darkMode ? 'text-slate-600' : 'text-slate-400'
-                      }`}>{project.category}</span>
+                    ))
+                  ) : (
+                    <div className={`rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center ${
+                      darkMode ? 'bg-slate-900 border border-slate-800' : 'bg-slate-200 border border-slate-200'
+                    }`}>
+                      <div className="flex flex-col items-center justify-center w-full h-full gap-3 px-8 text-center">
+                        <div className={`text-5xl font-black tracking-tighter select-none ${
+                          darkMode ? 'text-slate-800' : 'text-slate-300'
+                        }`}>
+                          {project.title.split(' ').slice(0, 2).map(w => w[0]).join('')}
+                        </div>
+                        <span className={`text-xs uppercase tracking-widest font-medium ${
+                          darkMode ? 'text-slate-600' : 'text-slate-400'
+                        }`}>{project.category}</span>
+                      </div>
                     </div>
                   )}
                 </div>
