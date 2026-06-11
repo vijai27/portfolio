@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Mail, Linkedin, Github, Download, ArrowRight, ExternalLink, Youtube } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Menu, X, Mail, Linkedin, Github, Download, ArrowRight, ExternalLink, Youtube, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
   const [scrolled, setScrolled] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [activeImg, setActiveImg] = useState(0);
   
   const profileImage = '/profile.jpg';
 
@@ -36,6 +38,20 @@ const Portfolio = () => {
       setMobileMenuOpen(false);
     }
   };
+
+  const openProject = (project) => { setSelectedProject(project); setActiveImg(0); document.body.style.overflow = 'hidden'; };
+  const closeProject = () => { setSelectedProject(null); setActiveImg(0); document.body.style.overflow = ''; };
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (!selectedProject) return;
+      if (e.key === 'Escape') closeProject();
+      if (e.key === 'ArrowRight') setActiveImg(i => Math.min(i + 1, (selectedProject.images?.length || 1) - 1));
+      if (e.key === 'ArrowLeft') setActiveImg(i => Math.max(i - 1, 0));
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [selectedProject]);
 
   const projects = [
     {
@@ -472,124 +488,97 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section id="projects" className={`py-24 ${darkMode ? 'bg-slate-950' : 'bg-slate-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-20">
-            <h2 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-              Projects
-            </h2>
-            <a
-              href="https://drive.google.com/drive/folders/1mxykefmPrz2PD7OXBjWFQlQdOovSdHox?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-12">
+            <h2 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-slate-900'}`}>Projects</h2>
+            <a href="https://drive.google.com/drive/folders/1mxykefmPrz2PD7OXBjWFQlQdOovSdHox?usp=sharing"
+              target="_blank" rel="noopener noreferrer"
               className={`inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
-                darkMode
-                  ? 'bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-600/40'
-                  : 'bg-blue-50 hover:bg-blue-100 text-blue-600 border border-blue-200'
-              }`}
-            >
-              <ExternalLink size={15} />
-              View Project Media
+                darkMode ? 'bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-600/40'
+                  : 'bg-blue-50 hover:bg-blue-100 text-blue-600 border border-blue-200'}`}>
+              <ExternalLink size={15} /> View Project Media
             </a>
           </div>
 
-          <div className="space-y-32">
+          <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
-              <div
-                key={index}
-                className="grid md:grid-cols-[42%_1fr] gap-12 lg:gap-20 items-start"
-                style={{ animation: `fadeInUp 0.7s ease-out ${index * 0.08}s backwards` }}
+              <div key={index}
+                className={`rounded-xl overflow-hidden transition-all hover:scale-[1.02] cursor-pointer ${
+                  darkMode ? 'bg-slate-900/50 border border-slate-800 hover:border-blue-400/50 shadow-xl shadow-black/20'
+                    : 'bg-white border border-slate-200 hover:border-blue-300 shadow-lg'}`}
+                style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s backwards` }}
+                onClick={() => openProject(project)}
               >
-                {/* Left — images */}
-                <div className="flex flex-col gap-3">
-                  {project.images && project.images.length > 0 ? (
-                    project.images.map((src, i) => (
-                      <div key={i} className={`rounded-xl overflow-hidden flex items-center justify-center p-2 ${
-                        darkMode ? 'bg-slate-900 border border-slate-800' : 'bg-slate-100 border border-slate-200'
-                      }`}>
-                        <img
-                          src={src}
-                          alt={`${project.title} ${i + 1}`}
-                          className="w-full h-auto max-h-56 object-contain rounded-lg"
-                        />
-                      </div>
-                    ))
+                {/* Thumbnail */}
+                <div className={`w-full h-44 overflow-hidden flex items-center justify-center ${
+                  darkMode ? 'bg-slate-800' : 'bg-slate-100'}`}>
+                  {project.images?.[0] ? (
+                    <img src={project.images[0]} alt={project.title}
+                      className="w-full h-full object-contain p-2" />
                   ) : (
-                    <div className={`rounded-2xl h-52 flex items-center justify-center ${
-                      darkMode ? 'bg-slate-900 border border-slate-800' : 'bg-slate-200 border border-slate-200'
-                    }`}>
-                      <span className={`text-5xl font-black select-none ${darkMode ? 'text-slate-800' : 'text-slate-300'}`}>
-                        {project.title.split(' ').slice(0, 2).map(w => w[0]).join('')}
-                      </span>
-                    </div>
+                    <span className={`text-4xl font-black select-none ${darkMode ? 'text-slate-700' : 'text-slate-300'}`}>
+                      {project.title.split(' ').slice(0, 2).map(w => w[0]).join('')}
+                    </span>
                   )}
                 </div>
 
-                {/* Right — content */}
-                <div className="pt-2">
-                  <div className="mb-3">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
                     <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                      darkMode ? 'bg-blue-400/10 text-blue-400' : 'bg-blue-50 text-blue-600'
-                    }`}>
+                      darkMode ? 'bg-blue-400/10 text-blue-400' : 'bg-blue-50 text-blue-600'}`}>
                       {project.category}
                     </span>
+                    {project.images?.length > 1 && (
+                      <span className={`text-xs flex items-center gap-1 ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                        <ZoomIn size={12} /> {project.images.length} photos
+                      </span>
+                    )}
                   </div>
 
-                  <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                    {project.title}
-                  </h3>
+                  <h3 className={`text-lg font-bold mb-3 ${darkMode ? 'text-white' : 'text-slate-900'}`}>{project.title}</h3>
 
-                  <div className="mb-5 space-y-3">
-                    {[
-                      { label: "Problem", text: project.problem },
-                      { label: "Approach", text: project.approach },
-                      { label: "Result", text: project.result },
-                    ].map(({ label, text }) => (
-                      <div key={label} className="text-sm leading-relaxed">
-                        <span className={`font-semibold ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
-                          {label}:{' '}
-                        </span>
-                        <span className={darkMode ? 'text-slate-300' : 'text-slate-600'}>{text}</span>
-                      </div>
-                    ))}
+                  <div className="mb-4 space-y-2">
+                    {[{ label: "Problem", text: project.problem }, { label: "Approach", text: project.approach }, { label: "Result", text: project.result }]
+                      .map(({ label, text }) => (
+                        <div key={label} className="text-sm leading-relaxed">
+                          <span className={`font-semibold ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>{label}: </span>
+                          <span className={darkMode ? 'text-slate-300' : 'text-slate-600'}>{text}</span>
+                        </div>
+                      ))}
                   </div>
 
-                  <h4 className={`text-xs font-semibold uppercase tracking-wider mb-2 ${
-                    darkMode ? 'text-slate-400' : 'text-slate-500'
-                  }`}>Skills Used</h4>
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.skills.map((skill, i) => (
                       <span key={i} className={`px-2.5 py-1 text-xs rounded-md ${
-                        darkMode
-                          ? 'bg-slate-800 text-slate-300 border border-slate-700'
-                          : 'bg-slate-100 text-slate-700 border border-slate-200'
-                      }`}>{skill}</span>
+                        darkMode ? 'bg-slate-800 text-slate-300 border border-slate-700'
+                          : 'bg-slate-100 text-slate-700 border border-slate-200'}`}>{skill}</span>
                     ))}
                   </div>
 
                   {(project.github || project.report || project.video) && (
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2" onClick={e => e.stopPropagation()}>
                       {project.github && (
                         <a href={project.github} target="_blank" rel="noopener noreferrer"
                           className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
-                            darkMode
-                              ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
-                              : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-                          }`}><Github size={16} /> GitHub</a>
+                            darkMode ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
+                              : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'}`}>
+                          <Github size={15} /> GitHub
+                        </a>
                       )}
                       {project.report && (
                         <a href={project.report} target="_blank" rel="noopener noreferrer"
                           className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
-                            darkMode
-                              ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
-                              : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-                          }`}><ExternalLink size={16} /> Report</a>
+                            darkMode ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
+                              : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'}`}>
+                          <ExternalLink size={15} /> Report
+                        </a>
                       )}
                       {project.video && (
                         <a href={project.video} target="_blank" rel="noopener noreferrer"
                           className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
-                            darkMode
-                              ? 'bg-red-900/40 hover:bg-red-900/60 text-red-400 hover:text-red-300 border border-red-900/50'
-                              : 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'
-                          }`}><Youtube size={16} /> Video</a>
+                            darkMode ? 'bg-red-900/40 hover:bg-red-900/60 text-red-400 hover:text-red-300 border border-red-900/50'
+                              : 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'}`}>
+                          <Youtube size={15} /> Video
+                        </a>
                       )}
                     </div>
                   )}
@@ -599,6 +588,142 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
+      {/* Project Detail Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={closeProject}>
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+          <div
+            className={`relative w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl ${
+              darkMode ? 'bg-slate-900 border border-slate-700' : 'bg-white border border-slate-200'}`}
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Modal header */}
+            <div className={`sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b ${
+              darkMode ? 'bg-slate-900 border-slate-700' : 'bg-white border-slate-200'}`}>
+              <div>
+                <span className={`text-xs font-semibold uppercase tracking-wider ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                  {selectedProject.category}
+                </span>
+                <h2 className={`text-xl font-bold mt-0.5 ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                  {selectedProject.title}
+                </h2>
+              </div>
+              <button onClick={closeProject}
+                className={`p-2 rounded-lg transition-colors ${
+                  darkMode ? 'hover:bg-slate-800 text-slate-400 hover:text-white' : 'hover:bg-slate-100 text-slate-500'}`}>
+                <X size={22} />
+              </button>
+            </div>
+
+            <div className="p-6 grid md:grid-cols-2 gap-8">
+              {/* Image gallery */}
+              {selectedProject.images?.length > 0 && (
+                <div className="space-y-3">
+                  {/* Main image */}
+                  <div className={`rounded-xl overflow-hidden flex items-center justify-center p-3 ${
+                    darkMode ? 'bg-slate-800' : 'bg-slate-100'}`} style={{ minHeight: '280px' }}>
+                    <img
+                      src={selectedProject.images[activeImg]}
+                      alt={`${selectedProject.title} ${activeImg + 1}`}
+                      className="max-w-full max-h-72 object-contain rounded-lg"
+                    />
+                  </div>
+                  {/* Navigation */}
+                  {selectedProject.images.length > 1 && (
+                    <div className="flex items-center gap-2">
+                      <button onClick={() => setActiveImg(i => Math.max(i - 1, 0))}
+                        disabled={activeImg === 0}
+                        className={`p-2 rounded-lg transition-colors disabled:opacity-30 ${
+                          darkMode ? 'bg-slate-800 hover:bg-slate-700 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}>
+                        <ChevronLeft size={18} />
+                      </button>
+                      <div className="flex gap-1.5 flex-1 overflow-x-auto">
+                        {selectedProject.images.map((src, i) => (
+                          <button key={i} onClick={() => setActiveImg(i)}
+                            className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
+                              i === activeImg
+                                ? darkMode ? 'border-blue-400' : 'border-blue-500'
+                                : darkMode ? 'border-slate-700 opacity-60 hover:opacity-100' : 'border-slate-200 opacity-60 hover:opacity-100'}`}>
+                            <img src={src} alt="" className="w-full h-full object-contain" />
+                          </button>
+                        ))}
+                      </div>
+                      <button onClick={() => setActiveImg(i => Math.min(i + 1, selectedProject.images.length - 1))}
+                        disabled={activeImg === selectedProject.images.length - 1}
+                        className={`p-2 rounded-lg transition-colors disabled:opacity-30 ${
+                          darkMode ? 'bg-slate-800 hover:bg-slate-700 text-white' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}`}>
+                        <ChevronRight size={18} />
+                      </button>
+                    </div>
+                  )}
+                  <p className={`text-xs text-center ${darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                    {activeImg + 1} / {selectedProject.images.length} · ← → to navigate
+                  </p>
+                </div>
+              )}
+
+              {/* Content */}
+              <div className="space-y-5">
+                <div className="space-y-3">
+                  {[{ label: "Problem", text: selectedProject.problem },
+                    { label: "Approach", text: selectedProject.approach },
+                    { label: "Result", text: selectedProject.result }]
+                    .map(({ label, text }) => (
+                      <div key={label} className="text-sm leading-relaxed">
+                        <span className={`font-semibold ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>{label}: </span>
+                        <span className={darkMode ? 'text-slate-300' : 'text-slate-600'}>{text}</span>
+                      </div>
+                    ))}
+                </div>
+
+                <div>
+                  <h4 className={`text-xs font-semibold uppercase tracking-wider mb-2 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
+                    Skills Used
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {selectedProject.skills.map((skill, i) => (
+                      <span key={i} className={`px-2.5 py-1 text-xs rounded-md ${
+                        darkMode ? 'bg-slate-800 text-slate-300 border border-slate-700'
+                          : 'bg-slate-100 text-slate-700 border border-slate-200'}`}>{skill}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {(selectedProject.github || selectedProject.report || selectedProject.video) && (
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {selectedProject.github && (
+                      <a href={selectedProject.github} target="_blank" rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                          darkMode ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
+                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'}`}>
+                        <Github size={15} /> GitHub
+                      </a>
+                    )}
+                    {selectedProject.report && (
+                      <a href={selectedProject.report} target="_blank" rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                          darkMode ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700'
+                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'}`}>
+                        <ExternalLink size={15} /> Report
+                      </a>
+                    )}
+                    {selectedProject.video && (
+                      <a href={selectedProject.video} target="_blank" rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all hover:scale-105 ${
+                          darkMode ? 'bg-red-900/40 hover:bg-red-900/60 text-red-400 hover:text-red-300 border border-red-900/50'
+                            : 'bg-red-50 hover:bg-red-100 text-red-600 border border-red-200'}`}>
+                        <Youtube size={15} /> Video
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Experience Section */}
       <section id="experience" className={`py-24 ${darkMode ? 'bg-slate-900/50' : 'bg-white'}`}>
