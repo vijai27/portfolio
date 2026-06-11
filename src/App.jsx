@@ -499,24 +499,19 @@ const Portfolio = () => {
                 style={{ animation: `fadeInUp 0.7s ease-out ${index * 0.08}s backwards` }}
               >
                 {/* Left — images */}
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-3">
                   {project.images && project.images.length > 0 ? (
-                    <>
-                      {/* First image — featured */}
-                      <div className={`rounded-xl overflow-hidden h-52 ${darkMode ? 'bg-slate-900' : 'bg-slate-200'}`}>
-                        <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover object-center" />
+                    project.images.map((src, i) => (
+                      <div key={i} className={`rounded-xl overflow-hidden flex items-center justify-center p-2 ${
+                        darkMode ? 'bg-slate-900 border border-slate-800' : 'bg-slate-100 border border-slate-200'
+                      }`}>
+                        <img
+                          src={src}
+                          alt={`${project.title} ${i + 1}`}
+                          className="w-full h-auto max-h-56 object-contain rounded-lg"
+                        />
                       </div>
-                      {/* Remaining images — compact 2-col grid */}
-                      {project.images.length > 1 && (
-                        <div className="grid grid-cols-2 gap-2">
-                          {project.images.slice(1).map((src, i) => (
-                            <div key={i} className={`rounded-lg overflow-hidden h-28 ${darkMode ? 'bg-slate-900' : 'bg-slate-200'}`}>
-                              <img src={src} alt={`${project.title} ${i + 2}`} className="w-full h-full object-cover object-center" />
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </>
+                    ))
                   ) : (
                     <div className={`rounded-2xl h-52 flex items-center justify-center ${
                       darkMode ? 'bg-slate-900 border border-slate-800' : 'bg-slate-200 border border-slate-200'
